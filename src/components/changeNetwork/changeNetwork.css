@@ -1,0 +1,56 @@
+.change-network {
+    margin-top: 15px;
+}
+
+.network-icon {
+    filter: none !important;
+}
+
+.network {
+    gap: 1em;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.network p {
+    color: var(--colour-white);
+}
+
+.subnav-content span {
+    font-size: 0.7em;
+    margin-left: auto;
+    color: var(--colour-primary-grey-5);
+}
+
+.pending {
+    position: relative;
+}
+
+.pending:before {
+
+    --stripe-size: 200px;
+
+    content: "";
+    top: 0;
+    left: 0;
+    width: calc(100% + var(--stripe-size));
+    height: 100%;
+    
+    position: absolute;
+    z-index: -1;
+
+    background: repeating-linear-gradient(
+        -45deg,
+        var(--colour-purple) 0px,
+        var(--colour-light-purple) 10px,
+        var(--colour-purple) 10px,
+        var(--colour-light-purple) 20px
+    );
+    background-size: var(--stripe-size) var(--stripe-size);
+    animation: animateStripes 2s linear infinite;
+}
+
+@keyframes animateStripes {
+    0% { transform: translateX(-110px);}
+    100% { transform: translateX(0);}
+}
