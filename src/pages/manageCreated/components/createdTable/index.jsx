@@ -7,7 +7,7 @@ import { formatEther } from "ethers/lib/utils";
 import loadingGif from "../../../../assets/images/gifs/loading.gif";
 import { Table } from "../../../../components";
 import { useInterval } from "../../../../helpers";
-import { ChainIcon } from "../../../../components";
+import searchIcon from "../../../../assets/vectors/icons/search.svg";
 
 export default function CreatedTable() {
 
@@ -19,8 +19,6 @@ export default function CreatedTable() {
     const [rows, setRows] = useState([]);
     const [loaded, finishedLoading] = useState(false);
     const [search, setSearch] = useState('');
-
-    console.log(chain);
 
     const columns = useMemo(() => [
         {
@@ -56,9 +54,16 @@ export default function CreatedTable() {
             }).then((squid) => {
                 const newRow = {
                     uuid: id,
+                    address: squid[0],
                     name: squid[1],
+                    description: squid[2],
+                    shares: squid[3],
+                    totalShares: squid[4],
+                    balance: formatEther(squid[5]),
                     pot: formatEther(squid[6]),
-                    address: squid[0]
+                    lastWithdrawl: squid[7],
+                    creator: squid[8],
+                    locked: squid[9]
                 }
                 temp.push(newRow);
             });
@@ -72,7 +77,7 @@ export default function CreatedTable() {
                 setRows(res);
             });
         }
-    }, 60000)
+    }, 30000)
 
     useEffect(() => {
         if(isSuccess) {
@@ -91,10 +96,10 @@ export default function CreatedTable() {
         try {
             let res = [];
             for(let i = 0; i < arr.length; i++) {
-                if(arr[i].uuid.toString().includes(search)) { res.push(arr[i]); continue; }
-                if(arr[i].name.includes(search)) { res.push(arr[i]); continue; }
-                if(arr[i].pot.toString().includes(search)) { res.push(arr[i]); continue; }
-                if(arr[i].address.includes(search)) { res.push(arr[i]); continue; }
+                if(arr[i].uuid.toString().includes(search.toLowerCase())) { res.push(arr[i]); continue; }
+                if(arr[i].name.toLowerCase().includes(search.toLowerCase())) { res.push(arr[i]); continue; }
+                if(arr[i].pot.toString().includes(search.toLowerCase())) { res.push(arr[i]); continue; }
+                if(arr[i].address.toLowerCase().includes(search.toLowerCase())) { res.push(arr[i]); continue; }
             }
             return res;
         } catch (e) {
@@ -106,13 +111,16 @@ export default function CreatedTable() {
     if(loaded) {
         return(
             <>
-                <input
-                    type="text"
-                    value={search}
-                    onChange={e => setSearch(e.target.value)}
-                    placeholder="Search"
-                    className="search-table-input"
-                />
+                <div className="search-container">
+                    <input
+                        type="text"
+                        value={search}
+                        onChange={e => setSearch(e.target.value)}
+                        placeholder="Search"
+                        className="search-table-input"
+                    />
+                    <img src={searchIcon} alt="" />
+                </div>
                 <Table rowData={filter(rows)} columns={columns} title="Created By Me"/>
             </>
         );

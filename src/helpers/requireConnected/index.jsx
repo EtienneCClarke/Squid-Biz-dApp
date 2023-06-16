@@ -10,20 +10,20 @@ export default function RequireConnected({ children }) {
     const navigate = useNavigate();
 
     useEffect(() => {
-        let validChain = false;
-        chains.forEach((item) => {
-            if(item.id == chain.id) validChain = true;
-        });
-        if(!validChain) {
-            disconnect();
+        if(chain) {
+            let validChain = false;
+            chains.forEach((item) => {
+                if(item.id == chain.id) validChain = true;
+            });
+            if(!validChain) {
+                disconnect();
+            }
         }
     }, [chain])
 
-    useEffect(() => {
-        if(!isConnected) {
-            navigate("/");
-        }
-    }, [isConnected]);
+    if(!isConnected || !chain) {
+        navigate("/")
+    }
 
     if(isConnected) {
         return (

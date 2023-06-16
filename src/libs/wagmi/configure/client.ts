@@ -24,7 +24,7 @@ export const wagmiConfig = createConfig({
 		new WalletConnectConnector({
 			chains,
 			options: {
-				projectId: '67d8e0560795267607bde7ee0957ad0a'
+				projectId: 'ffb4f14d8c4fdcb7b89b4a5247102ab1'
 			},
 		})
 	],

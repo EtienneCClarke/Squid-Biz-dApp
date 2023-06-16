@@ -1,5 +1,5 @@
-import ethereum from "../../assets/images/png/chains/logo/ethereum.png";
-import polygon from "../../assets/images/png/chains/logo/polygon.png";
+import ethereum from "../../assets/vectors/chains/ethereum.svg";
+import polygon from "../../assets/vectors/chains/polygon.svg";
 
 const chainLogos = {
     Ethereum: ethereum,

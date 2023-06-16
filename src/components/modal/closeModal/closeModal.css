@@ -1,0 +1,21 @@
+.close-modal-container {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    transition: var(--animation-duration-fast);
+    cursor: pointer;
+    z-index: 100;
+    padding: 4px;
+}
+
+.close-modal-container:hover {
+    background: var(--colour-light-grey);
+}
+
+.close-modal-container img {
+    scale: 0.6;
+}

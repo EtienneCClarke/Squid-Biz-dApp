@@ -46,7 +46,6 @@ function useWriteContract(target, arg) {
         abi: abi,
         functionName: target,
         args: arg
-
     });
 
     return useContractWrite(config);

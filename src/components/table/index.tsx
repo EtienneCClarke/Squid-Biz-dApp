@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import Modal from "react-modal";
+import { PersonalModal, CreatedModal } from '../modal';
 
 import asc from "../../assets/vectors/table/asc.svg";
 import desc from "../../assets/vectors/table/desc.svg";
@@ -15,7 +17,7 @@ import {
 } from '@tanstack/react-table'
 
 
-export default function Table({ rowData, columns, title }) {
+export default function Table({ rowData, columns, title, personal = false }) {
 
 	const [sorting, setSorting] = useState([{
 		"id": "uuid",
@@ -23,9 +25,12 @@ export default function Table({ rowData, columns, title }) {
 	}])
 
 	const [data, setData] = useState(rowData);
+	const [modalIsOpen, setIsOpen] = useState(false);
+	const [modalData, setModalData] = useState();
 
 	useEffect(() => {
 		setData(rowData);
+		Modal.setAppElement('body');
 	}, [rowData]);
 
 	const table = useReactTable({
@@ -38,6 +43,15 @@ export default function Table({ rowData, columns, title }) {
 		getCoreRowModel: getCoreRowModel(),
 		getSortedRowModel: getSortedRowModel(),
 	})
+
+	function openModal(e, data) {
+		setModalData(data);
+		setIsOpen(true);
+	}
+
+	function closeModal() {
+		setIsOpen(false);
+	}
 
 	return (
 		<div className="custom-table">
@@ -78,7 +92,10 @@ export default function Table({ rowData, columns, title }) {
 						.getRowModel()
 						.rows.map(row => {
 						return (
-							<tr key={row.id}>
+							<tr
+								key={row.id}
+								onClick={(e) => { openModal(e, row.original) }}
+							>
 								{row.getVisibleCells().map(cell => {
 									return (
 										<td key={cell.id}>
@@ -94,6 +111,16 @@ export default function Table({ rowData, columns, title }) {
 					})}
 				</tbody>
 			</table>
+			<Modal
+				isOpen={modalIsOpen}
+				onRequestClose={closeModal}
+			>
+				{personal ?
+					<PersonalModal closeModal={closeModal} data={modalData}/>
+					:
+					<CreatedModal closeModal={closeModal} data={modalData}/>
+				}
+			</Modal>
 		</div>
 	)
 }

@@ -7,13 +7,19 @@
 :root {
     --colour-white: #FFFFFF;
     --colour-light-grey: #EFEFEF;
+    --colour-light-grey-2: #d8d8d8;
     --colour-grey: #CCCCCC;
+    --colour-dark-grey: #939393;
     --colour-light-purple: #9347F4;
     --colour-purple: #7712F7;
     --colour-dark-purple: #5916af;
     --colour-dark-purple-b: #450993;
-    --colour-blue: #6CEBE4;
     --colour-red: #F53261;
+    --colour-coral-blue: #2B927F;
+    --colour-blue: #6CEBE4;
+    --colour-royal-blue: #1212F7;
+    --colour-green: #4BC57B;
+    --colour-dark-green: #0f522a;
 
     --colour-text: #111111;
 
@@ -65,6 +71,7 @@ html, body {
 main {
     display: flex;
     flex-grow: 1;
+    overflow-x: scroll;
 }
 
 .container {
@@ -126,34 +133,50 @@ h1, h2, h3, h4, h5, h6 {
     margin-right: auto;
 }
 
+.w-90 {
+    width: 90%;
+}
+
 .loading-table {
     height: max(250px, 35vh);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 2em;
 }
 
 .table-container {
     width: 90%;
+    max-width: 1750px;
     margin-inline: auto;
     margin-top: 20px;
-    height: calc(100% - 80px);
+    height: calc(100% - 90px);
+}
+
+.search-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 50px;
+    padding-inline: 1.5em;
+    border: 1px solid #939393;
+    width: fit-content;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 400px;
 }
 
 .search-table-input {
-    margin-bottom: 20px;
-    width: 320px;
+    height: 100%;
+    width: 100%;
     outline: none;
     border: none;
-    height: 40px;
     background-color: transparent;
-    padding: 10px 20px 10px 20px;
     width: 25em;
-    font-size: .9rem;
+    font-size: 1.05em;
     color: #939393;
     font-weight: 500;
-    border: 1px solid red;
 }
 
 .balls-container {
@@ -194,4 +217,44 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0px 4px 10px -1px rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+}
+
+.modal-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: var(--colour-light-grey);
+    display: flex;
+    flex-direction: column;
+}
+
+.ReactModal__Overlay {
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.1) !important;
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ReactModal__Content {
+    opacity: 0;
+    transition: all 200ms;
+    max-width: 1000px;
+    height: min(700px, 95%);
+    width: 95%;
+    border: none !important;
+    inset: 0 !important;
+    position: unset !important;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 25px !important;
+    padding: 0 !important;
+}
+
+.ReactModal__Content--after-open {
+    opacity: 1;
+}
+
+.ReactModal__Content--before-close {
+    opacity: 0;
 }
