@@ -31,6 +31,10 @@ const router = createBrowserRouter([
         path: "/manage-personal",
         element: <RequireConnected children={<ManagePersonal />} />
     },
+    {
+        path: "/create",
+        element: <RequireConnected children={<Create />} />
+    }
 ]);
 
 export default function App() {

@@ -4,6 +4,12 @@ import "./details.css";
 
 export default function SquidDetails({ data }) {
     
+    function percent() {
+        const n = 3; // decimal places
+        const p = parseInt(data.shares) / parseInt(data.totalShares) * 100;
+        return <>{Math.round(p * 10**n) / 10**n}</>
+    }
+
     return(
         <div className="squid-details-container">
             <div className="squid-header">
@@ -13,7 +19,7 @@ export default function SquidDetails({ data }) {
             <p className="squid-description">{data.description}</p>
             <SquidAddress address={data.address} />
             <div className="squid-details">
-                <p>Your Shares: {data.shares}</p>
+                <p>Your Shares: {data.shares} ({percent()}%)</p>
                 <p>Total Shares: {data.totalShares}</p>
                 <br/>
                 <p>Last Withdrawl: {data.lastWithdrawl === "0" ? "None" : timestampToDate(data.lastWithdrawl)}</p>
