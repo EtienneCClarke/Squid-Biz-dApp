@@ -2,6 +2,7 @@ import { useState } from "react";
 import Balances from "../balances";
 import SquidDetails from "../squidDetails";
 import GlobalPayout from "../globalpayout";
+import Shareholders from "../shareholders";
 import "./createdModal.css";
 
 export default function CreatedModal({ closeModal, data }) {
@@ -32,6 +33,7 @@ export default function CreatedModal({ closeModal, data }) {
                     {!fetchToken && <div type="submit" onClick={() => setFetchToken(true)}>Fetch</div>}
                     {fetchToken && <div type="submit" onClick={() => reset()} className="reset">RESET</div>}
                 </div>
+                <Shareholders id={data.uuid} totalShares={data.totalShares}/>
             </div>
             <GlobalPayout id={data.uuid} ercToken={token} nativeToken={!fetchToken}/>
         </div>

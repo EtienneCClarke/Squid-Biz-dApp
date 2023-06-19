@@ -20,12 +20,6 @@ export const wagmiConfig = createConfig({
 			options: {
 				appName: 'wagmi',
 			},
-		}),
-		new WalletConnectConnector({
-			chains,
-			options: {
-				projectId: '36973bcece3bbbc59ee463643642e208'
-			},
 		})
 	],
 	publicClient,

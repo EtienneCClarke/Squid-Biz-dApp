@@ -31,7 +31,10 @@ export default function GlobalPayout({ id, ercToken, nativeToken = true }) {
         <div className="withdraw-container w-90 push-center">
             {isError && <p className="error-txt withdraw-error">Uh Oh! Something went wrong...</p>}
             {isSuccess && <div className="withdraw-success"><p>Success! Txn Hash: <a href={chain.blockExplorers.default.url + "/tx/" + data.hash} target="_blank">{data.hash}</a></p></div>}
-            <div className="withdraw-button-global" onClick={() => handleButton()}>
+            <div
+                onClick={() => handleButton()}
+                className="withdraw-button-payout-all"
+            >
                 {isLoading ? <img src={loading} alt="pending" /> : <p>Global Payout</p>}
             </div>
         </div>

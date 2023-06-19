@@ -42,3 +42,16 @@
 .fetchToken-container .reset {
     background: var(--colour-red);
 }
+
+@media screen and (max-width: 850px) {
+    .fetchToken-container,
+    .fetchToken-label {
+        font-size: 0.8em;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .fetchToken-container {
+        gap: 0.5em;
+    }
+}
