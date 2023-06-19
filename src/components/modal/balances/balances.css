@@ -38,6 +38,55 @@
     color: var(--colour-dark-grey);
 }
 
+.qr-title {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2em;
+    font-weight: 700;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.qr-code {
+    width: 100%;
+}
+
+.qr-title-name {
+    color: var(--colour-coral-blue);
+}
+
+.qr-address {
+    width: 100%;
+    overflow-wrap: break-word;
+    text-align: center;
+    padding: 5px;
+    margin-top: 15px;
+    font-weight: 600;
+    color: var(--colour-darkest-grey);
+}
+
+.qr-code-icon-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    transition: var(--animation-duration-fast);
+    cursor: pointer;
+    z-index: 100;
+    padding: 4px;
+}
+
+.qr-code-icon-container:hover {
+    background: var(--colour-light-grey);
+}
+
+.qr-code-icon-container img {
+    scale: 0.6;
+}
+
 @media screen and (max-width: 850px) {
     .large-balance {
         font-size: 2em;

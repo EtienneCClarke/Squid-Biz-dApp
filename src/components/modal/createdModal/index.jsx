@@ -24,6 +24,10 @@ export default function CreatedModal({ closeModal, data }) {
                 token={token}
                 fetchToken={fetchToken}
                 squidAddr={data.address}
+                qrData={{
+                    name: data.name,
+                    uuid: data.uuid
+                }}
             />
             <div className="w-90 push-center">
                 <SquidDetails data={data} />
