@@ -45,7 +45,10 @@ function useWriteContract(target, arg) {
         address: address,
         abi: abi,
         functionName: target,
-        args: arg
+        args: arg,
+        onError(error) {
+            return { error }
+        }
     });
 
     return useContractWrite(config);

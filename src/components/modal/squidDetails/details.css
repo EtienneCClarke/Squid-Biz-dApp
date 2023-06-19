@@ -32,3 +32,11 @@
     width: 100%;
     word-wrap: break-word;
 }
+
+@media screen and (max-width: 850px) {
+    .squid-details-container {
+        font-size: 0.8em;
+        width: 100%;
+        overflow-wrap: break-word;
+    }
+}

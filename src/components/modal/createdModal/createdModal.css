@@ -1,0 +1,44 @@
+.fetchToken-label {
+    margin-top: 20px;
+    color: var(--colour-dark-grey);
+    font-weight: 700;
+}
+
+.fetchToken-container {
+    display: flex;
+    gap: 1em;
+    margin-block: 10px 20px;
+    max-width: 30em;
+    user-select: none;
+}
+
+.fetchToken-container input {
+    border: 1px solid var(--colour-dark-grey);
+    border-radius: 5px;
+    flex-grow: 1;
+    padding-inline: 15px;
+    color: var(--colour-darkest-grey);
+
+}
+
+.fetchToken-container input:focus {
+    outline: var(--colour-dark-grey);
+}
+
+.fetchToken-container div {
+    cursor: pointer;
+    background: var(--colour-coral-blue);
+    color: var(--colour-white);
+    padding: 10px 20px;
+    border-radius: 7px;
+    transition: var(--animation-duration-fast);
+}
+
+.fetchToken-container div:hover {
+    box-shadow: 1.92192px 5.38138px 8.07207px 1.15315px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.fetchToken-container .reset {
+    background: var(--colour-red);
+}

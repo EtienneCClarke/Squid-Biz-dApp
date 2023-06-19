@@ -77,7 +77,7 @@ export default function CreatedTable() {
                 setRows(res);
             });
         }
-    }, 30000)
+    }, 30000);
 
     useEffect(() => {
         if(isSuccess) {

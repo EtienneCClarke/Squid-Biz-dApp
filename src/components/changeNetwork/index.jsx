@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useAccount, useNetwork, useSwitchNetwork } from "wagmi"
-import { useNavigate } from "react-router-dom";
 import ChainIcon from "../chainIcon";
 import icon from "../../assets/vectors/icons/changeNetwork.svg";
 import "./changeNetwork.css";
@@ -8,10 +7,9 @@ import "./changeNetwork.css";
 export default function ChangeNetwork() {
 
     const [open, setOpen] = useState(false);
-    const { navigate } = useNavigate();
 
     const { chain } = useNetwork();
-    const { chains, switchNetwork, error, isLoading, pendingChainId } = useSwitchNetwork({
+    const { chains, switchNetwork, isLoading, pendingChainId } = useSwitchNetwork({
         onSuccess() {
             window.location.reload();
         }
@@ -51,7 +49,6 @@ export default function ChangeNetwork() {
                                             >
                                                 <ChainIcon name={item.name}/>
                                                 <p>{item.name}</p>
-                                                {/* {isLoading && pendingChainId === item.id && <span>(switching)</span>} */}
                                             </a>
                                         );
                                     })

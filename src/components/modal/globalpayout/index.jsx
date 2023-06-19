@@ -1,12 +1,26 @@
+import { useEffect, useState } from "react";
 import { useNetwork } from "wagmi";
 import { useWriteContract } from "../../../libs/wagmi";
 import loading from "../../../assets/images/gifs/loading.gif";
 import "./globalpayout.css";
 
-export default function GlobalPayout({ id }) {
+export default function GlobalPayout({ id, ercToken, nativeToken = true }) {
+    
+    const [token, setToken] = useState();
+    const [native, setNative] = useState();
+
+    useEffect(() => {
+        if(!nativeToken) {
+            setToken(ercToken);
+            setNative(false);
+        } else {
+            setToken("0x0000000000000000000000000000000000001010");
+            setNative(true);
+        }
+    }, [ercToken, nativeToken]);
 
     const { chain } = useNetwork();
-    const { write, isError, isSuccess, isLoading, data } = useWriteContract("payoutAll", [id, "0x0000000000000000000000000000000000001010", true]);
+    const { write, isError, isSuccess, isLoading, data } = useWriteContract("payoutAll", [id, token, native]);
 
     function handleButton() {
         if(!write) return;

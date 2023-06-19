@@ -27,7 +27,7 @@ export default function SquidAddress({ address }) {
                 <div className="copy-address-icon-container">
                     {copied ? <img src={tickIcon} alt="" /> : <img src={copyIcon} alt=""/>}
                 </div>
-                {copied ? <p>Copied to clipboard!</p> : <p>{address}</p> }
+                {copied ? <p>Copied to clipboard!</p> : <p className="address">{address}</p> }
                 {copied ? null : <p className="copy-address-right-txt">Copy</p> }
             </div>
         </div>

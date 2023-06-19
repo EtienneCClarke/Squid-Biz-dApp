@@ -18,6 +18,10 @@
     gap: 0.3em;
     font-size: 3em;
     width: 80%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-all;
+    text-align: center;
 }
 
 .large-balance .chain-logo {
@@ -32,4 +36,20 @@
     margin-top: 10px;
     font-size: 0.8em;
     color: var(--colour-dark-grey);
+}
+
+@media screen and (max-width: 850px) {
+    .large-balance {
+        font-size: 2em;
+    }
+    .large-balance .chain-logo {
+        transform: scale(1);
+    }
+    .large-balance-label {
+        font-size: 0.8em;
+    }
+    .balance-sub-label {
+        font-size: 0.7em;
+    }
+
 }

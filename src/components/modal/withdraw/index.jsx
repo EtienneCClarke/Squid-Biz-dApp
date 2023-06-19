@@ -8,8 +8,6 @@ export default function Withdraw({ id }) {
     const { chain } = useNetwork();
     const { write, isError, isSuccess, isLoading, data } = useWriteContract("payout", [id]);
 
-    console.log(chain.blockExplorers.default.url);
-
     function handleButton() {
         if(!write) return;
         write?.();

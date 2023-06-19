@@ -1,0 +1,224 @@
+.create-container {
+    width: 90%;
+    max-width: 1000px;
+    margin-inline: auto;
+    position: relative;
+}
+
+.create-title {
+    text-align: center;
+    margin-block: 50px;
+    font-size: 2.2em;
+}
+
+.sub-heading {
+    font-size: 1.4em;
+    padding-inline: 20px;
+}
+
+.enter-details-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.create-container input,
+.create-container textarea {
+    border: none;
+    box-shadow: 1.92192px 5.38138px 8.07207px 1.15315px rgba(0, 0, 0, 0.04);
+    border-radius: 15px;
+    padding: 20px 20px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9em;
+    transition: var(--animation-duration-fast);
+    color: var(--colour-darkest-grey);
+}
+
+.enter-details-container input,
+.enter-details-container textarea {
+    width: 100%;
+    margin-block: 20px 5px;
+}
+
+.enter-details-container p {
+    font-size: 0.8em;
+    color: var(--colour-dark-grey);
+    margin-left: auto;
+}
+
+.create-container input:focus,
+.create-container textarea:focus {
+    outline: 1px solid var(--colour-dark-grey);
+}
+
+.add-payee-container {
+    display: flex;
+    align-items: center;
+    gap: 1.5em;
+    margin-top: 20px;
+}
+
+.add-payee-container input:first-of-type {
+    width: 80%;
+}
+
+.add-payee-container input:last-of-type {
+    width: 13.1%;
+}
+
+.add-payee-btn {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--colour-green);
+    padding: 5px;
+    border-radius: 50%;
+    transition: var(--animation-duration-medium);
+}
+
+.add-payee-btn:hover,
+.create-btn:hover,
+.remove-btn:hover {
+    box-shadow: 1.92192px 5.38138px 8.07207px 1.15315px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.add-payee-btn-icon {
+    transform: rotate(45deg);
+    scale: 0.5;
+    filter: brightness(0) invert(1);
+}
+
+.payees-container {
+    margin-block: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.payees-title-container {
+    display: grid;
+    grid-template-columns: minmax(50%,70%) minmax(60px,15%) minmax(10px,15%);
+    width: 100%;
+    overflow-wrap: break-word;
+    padding: 10px 20px;
+}
+
+.payees-title-payee {
+    width: 80%;
+}
+
+.payees-title-container .sub-heading {
+    padding: unset !important;
+}
+
+.payee-row {
+    display: grid;
+    grid-template-columns: minmax(50%,70%) minmax(60px,15%) minmax(10px,15%);
+    width: 100%;
+    overflow-wrap: break-word;
+    padding: 10px 20px;
+}
+
+.payee-row:nth-child(odd) {
+    background: var(--colour-light-grey-2);
+}
+
+.payee-row-address {
+    width: 80%;
+}
+
+.remove-btn {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--colour-red);
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: var(--animation-duration-fast);
+}
+
+.remove-btn img {
+    scale: 0.5;
+    filter: brightness(0) invert(1);
+}
+
+.error-input {
+    border-left: 7px solid var(--colour-red) !important;
+    animation: shake var(--animation-duration-fast);
+}
+
+.create-total-shares {
+    text-align: center;
+    margin-top: 100px;
+    font-weight: 600;
+}
+
+.create-fee-label {
+    text-align: center;
+    margin-top: 10px;
+    color: var(--colour-dark-grey);
+    font-size: 0.7em;
+}
+
+.create-btn {
+    background-color: var(--colour-royal-blue);
+    color: var(--colour-white);
+    font-weight: 600;
+    padding: 10px 40px;
+    border-radius: 20px;
+    width: fit-content;
+    margin-inline: auto;
+    margin-block: 50px;
+    cursor: pointer;
+    transition: var(--animation-duration-fast);
+}
+
+.powered-by {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.5em;
+    font-weight: 700;
+}
+
+@keyframes shake {
+    25%, 75% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .add-payee-container {
+        gap: 1em;
+    }
+    .add-payee-container input:first-of-type {
+        width: 60%;
+    }
+    .add-payee-container input:last-of-type {
+        width: 30%;
+    }
+    .sub-heading {
+        font-size: 1em;
+    }
+    .payees-title-share {
+        padding-left: 0 !important;
+    }
+    .add-payee-btn {
+        scale: 0.7;
+    }
+    .create-container input, .create-container textarea {
+        padding: 20px 20px;
+        font-size: 0.7em;
+    }
+}

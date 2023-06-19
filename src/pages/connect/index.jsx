@@ -1,12 +1,18 @@
 import { useConnect, useAccount } from 'wagmi';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import logo from "../../assets/vectors/logo.svg";
 import { connectorLogos } from "./connectorData";
 import "./connect.css";
 
 export default function Connect() {
 
-    const { connect, connectors, error, isLoading, pendingConnector } = useConnect();
+    const { redirect } = useNavigate();
+
+    const { connect, connectors, error, isLoading, pendingConnector } = useConnect({
+        onSuccess() {
+            redirect("/manage-personal");
+        }
+    });
     const { status } = useAccount();
 
     if(status == "connected") {
@@ -16,7 +22,7 @@ export default function Connect() {
     return(
         <main id="connect-view">
             <div id="left-container">
-                <a href="https://www.ardoda.com" className="logo"><img src={logo} /></a>
+                <a href="https://www.squid.biz" className="logo"><img src={logo} /></a>
                 <div className="connect-content">
                     <h1>Connect.</h1>
                     <p>Dont have a wallet?
