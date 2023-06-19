@@ -53,6 +53,9 @@
 
 .qr-title-name {
     color: var(--colour-coral-blue);
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    width: 70%;
 }
 
 .qr-address {
