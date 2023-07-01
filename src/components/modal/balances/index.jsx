@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNetwork } from "wagmi";
 import { fetchBalance } from "@wagmi/core";
 import Modal from "react-modal";
-import QRCode from "react-qr-code";
+import QRCode from "qrcode.react";
 import CloseModal from "../closeModal";
 import ChainIcon from "../../chainIcon";
 import qrCodeIcon from "../../../assets/vectors/icons/qrcode.svg";
@@ -95,7 +95,12 @@ export default function Balances({
                     <p className="qr-title-name">{qrData.name}</p>
                     <p className="qr-title-id">&#x23;{qrData.uuid}</p>
                 </div>
-                <QRCode value={squidAddr} className="qr-code"/>
+                <QRCode
+                    value={squidAddr}
+                    size={256}
+                    className="qr-code"
+                    id="qrCode"
+                />
                 <div className="qr-address">
                     <p>{squidAddr}</p>
                 </div>
