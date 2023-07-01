@@ -16,10 +16,16 @@ export const wagmiConfig = createConfig({
 	connectors: [
 		new MetaMaskConnector({ chains }),
 		new CoinbaseWalletConnector({
-			chains,
+			chains: chains,
 			options: {
 				appName: 'wagmi',
 			},
+		}),
+		new WalletConnectConnector({
+			chains: chains,
+			options: {
+				projectId: '36973bcece3bbbc59ee463643642e208'
+			}
 		})
 	],
 	publicClient,
