@@ -22,7 +22,7 @@ export default function SquidDetails({ data }) {
                 <p>Your Shares: {data.shares} ({percent()}%)</p>
                 <p>Total Shares: {data.totalShares}</p>
                 <br/>
-                <p>Last Withdrawl: {data.lastWithdrawl === "0" ? "None" : timestampToDate(data.lastWithdrawl)}</p>
+                <p>Last Withdrawal: {data.lastWithdrawl === "0" ? "None" : timestampToDate(data.lastWithdrawl)}</p>
                 <br/>
                 <p>Creator Address:</p>
                 <p>{data.creator}</p>

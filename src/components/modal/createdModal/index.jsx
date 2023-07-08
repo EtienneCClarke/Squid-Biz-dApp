@@ -15,6 +15,13 @@ export default function CreatedModal({ closeModal, data }) {
         setFetchToken(false);
     }
 
+    function handleToken() {
+        if(token) {
+            setFetchToken(true);
+            return;
+        }
+    }
+
     return (
         <div className="modal-content bg-light-grey">
             <Balances
@@ -33,8 +40,12 @@ export default function CreatedModal({ closeModal, data }) {
                 <SquidDetails data={data} />
                 <p className="fetchToken-label">Access ERC-20 Token</p>
                 <div className="fetchToken-container">
-                    <input type="text" onChange={(e) => setToken(e.target.value)} value={token}/>
-                    {!fetchToken && <div type="submit" onClick={() => setFetchToken(true)}>Fetch</div>}
+                    <input
+                        type="text"
+                        onChange={(e) => setToken(e.target.value)}
+                        value={token}
+                    />
+                    {!fetchToken && <div type="submit" onClick={() => handleToken()}>Fetch</div>}
                     {fetchToken && <div type="submit" onClick={() => reset()} className="reset">RESET</div>}
                 </div>
                 <Shareholders id={data.uuid} totalShares={data.totalShares}/>

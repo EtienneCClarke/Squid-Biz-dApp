@@ -18,7 +18,10 @@
     flex-grow: 1;
     padding-inline: 15px;
     color: var(--colour-darkest-grey);
+}
 
+.fetchToken-container input .error{ 
+    border: 1px solid var(--colour-red);
 }
 
 .fetchToken-container input:focus {
